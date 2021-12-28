@@ -1,4 +1,4 @@
-## Initialize MongoDB
+# Initialize MongoDB
 
 * [Adding common pages](#adding-common-pages)
 * [Adding a User](#adding-a-user)
@@ -6,7 +6,9 @@
 * [Settings](#settings)
 * [Create indexes](#create-indexes)
 
-### Adding common pages
+Open `mongo` shell and execute scripts.
+
+## Adding common pages
 
 ```js
 db.pages.insertMany([
@@ -21,7 +23,7 @@ db.pages.insertMany([
 ]);
 ```
 
-### Adding a User
+## Adding a User
 
 ```js
 db.tokens.insert({
@@ -34,7 +36,7 @@ db.tokens.insert({
 });
 ```
 
-### Setting up a mail server
+## Setting up a mail server
 
 ```js
 db.emailSettings.insert({
@@ -47,33 +49,7 @@ db.emailSettings.insert({
 });
 ```
 
-### Settings
-
-```js
-db.settings.insert({
-  domain: 'https://domain.com',
-  logo_file: null,
-  language: 'en',
-  currency_code: 'USD',
-  currency_symbol: '$',
-  currency_format: '${amount}',
-  thousand_separator: ',',
-  decimal_separator: '.',
-  decimal_number: 2,
-  timezone: 'Asia/Singapore',
-  date_format: 'MMMM D, YYYY',
-  time_format: 'h:mm a',
-  default_shipping_country: 'SG',
-  default_shipping_state: '',
-  default_shipping_city: '',
-  default_product_sorting: 'stock_status,price,position',
-  weight_unit: 'kg',
-  length_unit: 'cm',
-  hide_billing_address: false
-});
-```
-
-### Create indexes
+## Create indexes
 
 ```js
 db.pages.createIndex({ enabled: 1 });
